@@ -22,7 +22,7 @@ Ability configuration can be found in `src/config/ability.js`, the React compone
 
 ## Example
 
-```html
+```jsx  
 <div className="view">
   <Can run="update" on={this.props.todo} ref="ability">
     <input className="toggle" type="checkbox" checked={this.props.todo.completed} onChange={this.completeTodo.bind(this)} />
