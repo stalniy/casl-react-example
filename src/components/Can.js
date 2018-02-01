@@ -12,11 +12,11 @@ export default class Can extends PureComponent {
   };
 
   state = {
-    valid: false
+    allowed: false
   }
 
-  get valid() {
-    return this.state.valid
+  get allowed() {
+    return this.state.allowed
   }
 
   componentWillMount() {
@@ -26,7 +26,7 @@ export default class Can extends PureComponent {
       this.makeAbilitiesToBeReactive();
     }
 
-    this.revalidate()
+    this.recheck()
   }
 
   componentWillUnmount() {
@@ -39,20 +39,20 @@ export default class Can extends PureComponent {
 
     ability.update = (...args) => {
       const result = updateAbilities.apply(ability, args);
-      WARDENS.forEach(instance => instance.revalidate());
+      WARDENS.forEach(instance => instance.recheck());
       return result;
     }
   }
 
-  revalidate() {
-    return this.setState({ valid: this.validate() })
+  recheck() {
+    return this.setState({ allowed: this.check() })
   }
 
-  validate() {
+  check() {
     return ability.can(this.props.run, this.props.on)
   }
 
   render() {
-    return this.state.valid ? (<div>{this.props.children}</div>) : '';
+    return this.state.allowed ? (<div>{this.props.children}</div>) : '';
   }
 }

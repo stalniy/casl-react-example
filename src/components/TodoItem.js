@@ -42,7 +42,7 @@ export default class TodoItem extends Component {
   }
 
   editTodo() {
-    if (!this.refs.ability.valid) {
+    if (!this.refs.mayUpdateTodo.allowed) {
       return
     }
 
@@ -78,7 +78,7 @@ export default class TodoItem extends Component {
     return (
       <li className={this.getClassName()}>
         <div className="view">
-          <Can run="update" on={this.props.todo} ref="ability">
+          <Can run="update" on={this.props.todo} ref="mayUpdateTodo">
             <input className="toggle" type="checkbox" checked={this.props.todo.completed} onChange={this.completeTodo.bind(this)} />
           </Can>
           <label onDoubleClick={this.editTodo.bind(this)}>{this.props.todo.title}</label>
