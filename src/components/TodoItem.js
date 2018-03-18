@@ -78,15 +78,15 @@ export default class TodoItem extends Component {
     return (
       <li className={this.getClassName()}>
         <div className="view">
-          <Can run="update" on={this.props.todo} ref="mayUpdateTodo">
+          <Can do="update" on={this.props.todo} ref="mayUpdateTodo">
             <input className="toggle" type="checkbox" checked={this.props.todo.completed} onChange={this.completeTodo.bind(this)} />
           </Can>
           <label onDoubleClick={this.editTodo.bind(this)}>{this.props.todo.title}</label>
-          <Can run="delete" on={this.props.todo}>
+          <Can do="delete" on={this.props.todo}>
             <button className="destroy" onClick={this.removeTodo.bind(this)}></button>
           </Can>
         </div>
-        <Can run="update" on={this.props.todo}>
+        <Can do="update" on={this.props.todo}>
           <input className="edit"
             type="text"
             ref="editInput"
