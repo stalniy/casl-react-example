@@ -50,7 +50,7 @@ export default class TodoList extends Component {
       <div>
         <header className="header">
           <h1>Todos</h1>
-          <Can run="create" on="Todo">
+          <Can do="create" on="Todo">
             <NewTodo onNewTodo={this.addTodo.bind(this)} />
           </Can>
         </header>

@@ -4,6 +4,8 @@ This example shows how to integrate CASL auhorization (i.e. permissions) in Reac
 
 > Generated with react-app
 
+**Note**: refactored to use CASL 2.0. See [@casl/ability][casl-ability] and [@casl/react][casl-react] for details.
+
 ## Installation
 
 ``` bash
@@ -22,14 +24,17 @@ Ability configuration can be found in `src/config/ability.js`, the React compone
 
 ## Example
 
-```jsx  
+```jsx
 <div className="view">
-  <Can run="update" on={this.props.todo} ref="ability">
+  <Can do="update" on={this.props.todo}>
     <input className="toggle" type="checkbox" checked={this.props.todo.completed} onChange={this.completeTodo.bind(this)} />
   </Can>
   <label onDoubleClick={this.editTodo.bind(this)}>{this.props.todo.title}</label>
-  <Can run="delete" on={this.props.todo}>
+  <Can do="delete" on={this.props.todo}>
     <button className="destroy" onClick={this.removeTodo.bind(this)}></button>
   </Can>
 </div>
 ```
+
+[casl-ability]: https://github.com/stalniy/casl/tree/master/packages/casl-ability
+[casl-react]: https://github.com/stalniy/casl/tree/master/packages/casl-react

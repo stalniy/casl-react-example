@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "casl": "^1.1.0",
+    "@casl/ability": "^2.0.0-alpha.ade5be4a",
+    "@casl/react": "^0.1.0-alpha.ade5be4a",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
