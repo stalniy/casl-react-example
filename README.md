@@ -1,6 +1,6 @@
 # CASL and React integration example
 
-This example shows how to integrate CASL auhorization (i.e. permissions) in React application.
+This example shows how to integrate CASL auhorization (i.e. permissions) in React application. Read [Managing user permissions in React app](https://medium.com/dailyjs/managing-user-permissions-in-your-react-app-a93a94ff9b40) for detailed explanation.
 
 > Generated with react-app
 
