@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@casl/ability": "^2.0.1",
-    "@casl/react": "^0.1.1",
+    "@casl/react": "^0.4.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
