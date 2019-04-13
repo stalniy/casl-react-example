@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import Can from './Can';
 
 export default class TodoItem extends Component {
+  constructor(props) {
+    super(props)
+    this.editInput = React.createRef();
+    this.mayUpdateTodo = React.createRef();
+  }
   state = {
     isEditing: false,
     editedTitle: ''
@@ -16,10 +21,10 @@ export default class TodoItem extends Component {
       return
     }
 
-    if (!this.refs.editInput.value) {
+    if (!this.editInput.current.value) {
       this.removeTodo()
     } else {
-      this.props.onEdited({ ...this.props.todo, title: this.refs.editInput.value })
+      this.props.onEdited({ ...this.props.todo, title: this.editInput.current.value })
     }
 
     this.cancelEdit()
@@ -42,14 +47,14 @@ export default class TodoItem extends Component {
   }
 
   editTodo() {
-    if (!this.refs.mayUpdateTodo.allowed) {
+    if (!this.mayUpdateTodo.current.allowed) {
       return
     }
 
     this.setState({
       isEditing: true,
     })
-    this.refs.editInput.focus()
+    this.editInput.current.focus()
   }
 
   updateTitle(event) {
@@ -78,7 +83,7 @@ export default class TodoItem extends Component {
     return (
       <li className={this.getClassName()}>
         <div className="view">
-          <Can do="update" on={this.props.todo} ref="mayUpdateTodo">
+          <Can do="update" on={this.props.todo} ref={this.mayUpdateTodo}>
             <input className="toggle" type="checkbox" checked={this.props.todo.completed} onChange={this.completeTodo.bind(this)} />
           </Can>
           <label onDoubleClick={this.editTodo.bind(this)}>{this.props.todo.title}</label>
@@ -89,7 +94,7 @@ export default class TodoItem extends Component {
         <Can do="update" on={this.props.todo}>
           <input className="edit"
             type="text"
-            ref="editInput"
+            ref={this.editInput}
             value={this.state.editedTitle || this.props.todo.title}
             onBlur={this.doneEdit.bind(this)}
             onKeyUp={this.doneOrCancelEdit.bind(this)}
