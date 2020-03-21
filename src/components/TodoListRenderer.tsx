@@ -1,10 +1,15 @@
 import React from 'react';
-import TodoItem from './TodoItem';
+import TodoItem, { Props as TodoItemProps } from './TodoItem';
+import { Todo } from '../services/todo-storage';
 
-export default function TodoListRenderer(props) {
+type Props = Omit<TodoItemProps, 'todo'> & {
+  items: Todo[]
+};
+
+export default function TodoListRenderer(props: Props) {
   const { items, ...todoProps } = props
   if (!items.length) {
-    return '';
+    return null;
   }
 
   return (
