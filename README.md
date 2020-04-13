@@ -1,4 +1,8 @@
-# CASL and React integration example
+# CASL and React integration example 
+
+## DEPRECATED
+
+The example has been moved to https://github.com/stalniy/casl-examples/tree/master/packages/react-todo
 
 This example shows how to integrate CASL auhorization (i.e. permissions) in React application. Read [Managing user permissions in React app](https://medium.com/dailyjs/managing-user-permissions-in-your-react-app-a93a94ff9b40) for detailed explanation.
 
